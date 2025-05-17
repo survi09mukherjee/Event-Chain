@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmed ✅</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            position: relative;
+        }
+
+        /* Ticket Confirmation Box */
+        .confirmation-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.8);
+            position: relative;
+            z-index: 5;
+            animation: glowPulse 2s infinite alternate;
+        }
+
+        .gradient-bar {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            animation: gradientAnimation 3s infinite linear;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffdde1); }
+            50% { background: linear-gradient(90deg, #84fab0, #8fd3f4, #a18cd1); }
+            100% { background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffdde1); }
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
+            100% { box-shadow: 0 0 40px rgba(0, 255, 255, 1); }
+        }
+
+        /* Twinkling Stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            opacity: 0;
+            animation: twinkle 5s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: floatAnimation 8s infinite linear;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translate(0, 0); opacity: 1; }
+            25% { transform: translate(50px, -80px); }
+            50% { transform: translate(-50px, 80px); }
+            75% { transform: translate(80px, -50px); }
+            100% { transform: translate(-80px, 50px); opacity: 1; }
+        }
+
+        /* Falling Matrix Code */
+        .matrix-code {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: rgba(0, 255, 0, 0.8);
+            font-size: 14px;
+            font-family: monospace;
+            opacity: 0;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { opacity: 1; transform: translateY(-100%); }
+            100% { opacity: 0; transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Twinkling Stars -->
+    <div class="stars"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles"></div>
+
+    <!-- Falling Matrix Code -->
+    <div class="matrix-code"></div>
+
+    <!-- Confirmation Box -->
+    <div class="confirmation-box" id="confirmationBox">
+        <div class="gradient-bar">
+            🎟️ Your Ticket ID is Finally Confirmed! ✅
+        </div>
+    </div>
+
+    <script>
+        // Play sound on page load
+        window.onload = function() {
+            let sound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+            sound.volume = 0.3;
+            sound.play();
+        };
+
+        // Play beep sound when box is clicked
+        document.getElementById('confirmationBox').addEventListener('click', function() {
+            let beep = new Audio('https://www.fesliyanstudios.com/play-mp3/380');
+            beep.volume = 0.4;
+            beep.play();
+        });
+
+        // Generate Twinkling Stars
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 100; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Generate Floating Particles (VIBGYOR Colors)
+        function generateParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+            for (let i = 0; i < 50; i++) {
+                let particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.background = colors[i % colors.length];
+                particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Generate Falling Matrix Code
+        function generateMatrixCode() {
+            const matrixContainer = document.querySelector('.matrix-code');
+            const characters = '0123456789ABCDEF';
+            for (let i = 0; i < 30; i++) {
+                let char = document.createElement('div');
+                char.classList.add('matrix-char');
+                char.innerText = characters[Math.floor(Math.random() * characters.length)];
+                char.style.left = `${Math.random() * 100}vw`;
+                char.style.top = `-${Math.random() * 10}vh`;
+                char.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                matrixContainer.appendChild(char);
+            }
+        }
+
+        // Generate Effects
+        generateStars();
+        generateParticles();
+        generateMatrixCode();
+    </script>
+
+</body>
+</html>

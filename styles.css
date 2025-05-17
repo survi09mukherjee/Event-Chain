@@ -1,0 +1,273 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('background.gif') center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.5;
+    animation: moveBackground 100s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Container Box */
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #000;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Headings */
+.main-heading {
+    font-size: 2.5em;
+    color: #00FFFF;
+    text-shadow: 2px 2px 5px #000;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 5px #000;
+    }
+    to {
+        text-shadow: 2px 2px 15px #00FFFF;
+    }
+}
+
+.sub-heading {
+    font-size: 1.3em;
+    color: #779bfe;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* Input Fields */
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    background-color: #2c2c54;
+    color: white;
+    box-shadow: 0 0 10px #8A2BE2;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add Glow on Focus */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 15px #ffcc00;
+}
+
+/* Neon Buttons */
+.neon-button {
+    width: 220px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1em;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 5px #fff;
+    }
+    to {
+        box-shadow: 0 0 15px #fff;
+    }
+}
+
+.mint-button {
+    background: linear-gradient(45deg, #00FFFF, #1E90FF);
+    font-weight: bolder;
+    color: #fc03a9;
+}
+
+.show-button {
+    background: linear-gradient(45deg, #a638f5, #e825a7);
+    font-weight: bolder;
+    color: #95f800;
+}
+
+.verify-button {
+    background: linear-gradient(45deg, #32CD32, #ADFF2F);
+}
+
+/* Button Hover Effect */
+.neon-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fff;
+}
+
+/* Notification Styling */
+.notification {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    min-width: 250px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0;
+    transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Notification Colors */
+.success {
+    background: green;
+}
+
+.error {
+    background: red;
+}
+
+.show {
+    bottom: 20px;
+    opacity: 1;
+}
+
+/* Ticket Name Row */
+.ticket-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background: darkred;
+    transform: scale(1.1);
+}
+
+/* Status Labels */
+.status {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.verified {
+    background-color: #28a745 !important;
+    color: white !important;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.incomplete {
+    background-color: #dc3545 !important;
+    color: white !important;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Return Button */
+.return-button {
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.return-button:hover {
+    transform: scale(1.05);
+}
+
+/* Animation for Ticket ID Reveal */
+#temporaryTicket {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#temporaryTicket.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.confirm-button {
+    width: 220px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff00ff, #ff6600);
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.confirm-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fff;
+}

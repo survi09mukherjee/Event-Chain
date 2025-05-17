@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <script>
+        function generateQR() {
+            const ticketId = "SampleTicket123";  // Placeholder Ticket ID
+            const qrCanvas = document.getElementById("qrCode");
+
+            // 🔹 Encode Ticket ID into QR Code
+            const confirmationURL = `https://confirmationpage-eta.vercel.app/?ticket=${ticketId}`;
+
+            new QRious({
+                element: qrCanvas,
+                value: confirmationURL,  
+                size: 150
+            });
+
+            document.getElementById("qrMessage").innerText = "Scan the QR code to confirm your ticket.";
+        }
+
+        // ✅ Confirm when QR is clicked
+        function confirmQRScan() {
+            const tickIcon = document.getElementById("tickIcon");
+            const notificationBar = document.getElementById("notificationBar");
+
+            // ✅ Show animated tick
+            tickIcon.classList.remove("hidden");
+            tickIcon.classList.add("fade-in-out");
+
+            // ✅ Show green notification bar
+            notificationBar.innerText = "✅ QR Scanned Successfully!";
+            notificationBar.classList.remove("hidden");
+
+            // ✅ Hide tick and notification after 5 seconds
+            setTimeout(() => {
+                tickIcon.classList.add("hidden");
+                notificationBar.classList.add("hidden");
+            }, 5000);
+        }
+
+        // ✅ Run QR code generation on page load
+        window.onload = generateQR;
+    </script>
+
+    <style>
+        body {
+            text-align: center;
+            background: url('background.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        #qrSection {
+            margin-top: 50px;
+        }
+
+        #qrCode {
+            border: 3px solid #00cc66;
+            border-radius: 10px;
+            padding: 5px;
+            cursor: pointer; /* ✅ Make QR clickable */
+        }
+
+        /* ✅ Animated Green Tick */
+        .tick-icon {
+            width: 50px;
+            height: 50px;
+            background: url('tick.png') no-repeat center center;
+            background-size: contain;
+            margin: 20px auto;
+            opacity: 0;
+        }
+
+        .fade-in-out {
+            animation: fadeInOut 5s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(0.8); }
+        }
+
+        /* ✅ Notification Bar */
+        #notificationBar {
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            background: #28a745; /* Green color */
+            color: white; 
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #notificationBar:not(.hidden) {
+            opacity: 1;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Confirm Your Ticket</h1>
+
+    <div id="qrSection">
+        <p id="qrMessage">Generating QR Code...</p>
+        <canvas id="qrCode" onclick="confirmQRScan()"></canvas>
+        <div id="tickIcon" class="tick-icon hidden"></div> <!-- ✅ Animated Tick -->
+    </div>
+
+    <!-- ✅ Green Alert Bar -->
+    <div id="notificationBar" class="hidden"></div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventChain - Verify Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <h1 class="main-heading">Verify Your Ticket</h1>
+        <input type="text" placeholder="Ticket ID" id="verifyTicketId">
+        <input type="password" placeholder="Ticket Password" id="verifyTicketPassword">
+        <button class="neon-button verify-button" onclick="verifyTicket()">Verify</button>
+        <p id="verificationResult"></p>
+        
+        <!-- Confirm button (hidden by default) -->
+        <button id="confirmButton" class="neon-button" style="display: none;" onclick="confirmTicket()">Confirm Here</button>
+        
+        <!-- Buttons to return to other pages -->
+        <button class="return-button" onclick="redirectToTickets()">🔙 Return to My Tickets</button>
+        <button class="return-button" onclick="redirectToMint()">🔙 Return to Mint Page</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

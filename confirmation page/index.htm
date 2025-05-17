@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmed ✅</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('background.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .confirmation-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gradient Bar */
+        .gradient-bar {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            animation: gradientAnimation 3s infinite linear;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffdde1); }
+            50% { background: linear-gradient(90deg, #84fab0, #8fd3f4, #a18cd1); }
+            100% { background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffdde1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-box">
+        <div class="gradient-bar">
+            🎟️ Your Ticket ID is Finally Confirmed! ✅
+        </div>
+    </div>
+
+</body>
+</html>
